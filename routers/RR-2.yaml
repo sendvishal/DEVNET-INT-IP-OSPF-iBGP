@@ -1,0 +1,61 @@
+---
+hostname:
+  hostname: RR-2
+ospf:
+  ospf_rid: 22.22.22.22
+  ospf_process: "1"
+  ospf_networks:
+    - ip: 10.121.0.0
+      wildcard: 0.0.0.3
+      area: "0"
+    - ip: 10.122.0.0
+      wildcard: 0.0.0.3
+      area: "0"
+    - ip: 10.123.0.0
+      wildcard: 0.0.0.3
+      area: "0"
+    - ip: 10.124.0.0
+      wildcard: 0.0.0.3
+      area: "0"
+interfaces:
+  - name: loopback 0
+    description: loopback interface
+    ip: 22.22.22.22
+    mask: 255.255.255.255
+    enabled: true
+  - name: GigabitEthernet0/1
+    description: LAN
+    ip: 10.121.0.1
+    mask: 255.255.255.252
+    enabled: true
+  - name: GigabitEthernet0/2
+    description: LAN
+    ip: 10.122.0.1
+    mask: 255.255.255.252
+    enabled: true
+  - name: GigabitEthernet0/3
+    description: LAN
+    ip: 10.123.0.1
+    mask: 255.255.255.252
+    enabled: true
+  - name: GigabitEthernet0/3
+    description: LAN
+    ip: 10.123.0.1
+    mask: 255.255.255.252
+    enabled: true
+  - name: GigabitEthernet0/4
+    description: LAN
+    ip: 10.124.0.1
+    mask: 255.255.255.252
+    enabled: true
+bgp:
+  asn: 65535
+  router_id: 22.22.22.22
+  update_source: "loopback 0"
+  route_reflector: True
+  peer_group: "peers"
+  neighbors:
+    - 1.1.1.1
+    - 2.2.2.2
+    - 3.3.3.3
+    - 4.4.4.4

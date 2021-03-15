@@ -1,0 +1,37 @@
+---
+hostname:
+  hostname: R3
+ospf:
+  ospf_rid: 3.3.3.3
+  ospf_process: "1"
+  ospf_networks:
+    - ip: 10.113.0.0
+      wildcard: 0.0.0.3
+      area: "0"
+    - ip: 10.123.0.0
+      wildcard: 0.0.0.3
+      area: "0"
+interfaces:
+  - name: loopback 0
+    description: loopback interface
+    ip: 3.3.3.3
+    mask: 255.255.255.255
+    enabled: true
+  - name: GigabitEthernet0/1
+    description: LAN
+    ip: 10.113.0.2
+    mask: 255.255.255.252
+    enabled: true
+  - name: GigabitEthernet0/2
+    description: LAN
+    ip: 10.123.0.2
+    mask: 255.255.255.252
+    enabled: true
+bgp:
+  asn: 65535
+  router_id: 3.3.3.3
+  update_source: "loopback 0"
+  route_reflector: False
+  neighbors:
+    - 11.11.11.11
+    - 22.22.22.22

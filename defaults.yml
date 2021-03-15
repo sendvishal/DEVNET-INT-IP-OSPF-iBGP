@@ -1,0 +1,12 @@
+---
+username: vish
+connection_options:
+  # netmiko:
+  #  extras: { "fast_cli": True }
+  scrapli:
+    extras:
+      ssh_config_file: True
+      auth_strict_key: False
+# make scrapli faster
+#transport: ssh2
+#timeout_transport: 10
