@@ -1,2 +1,4 @@
 2021-03-21 18:57:45,649 -  nornir.core -     INFO -        run() - Running task 'load_variable' with args {} on 6 hosts
 2021-03-21 18:58:08,546 -  nornir.core -     INFO -        run() - Running task 'show_status_ospf_bgp' with args {} on 6 hosts
+2021-03-21 19:02:15,766 -  nornir.core -     INFO -        run() - Running task 'load_variable' with args {} on 6 hosts
+2021-03-21 19:02:38,177 -  nornir.core -     INFO -        run() - Running task 'show_status_ospf_bgp' with args {} on 6 hosts
