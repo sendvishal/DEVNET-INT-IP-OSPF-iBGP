@@ -1,3 +1,4 @@
+
 from nornir import InitNornir
 from nornir_scrapli.tasks import send_commands, send_configs
 from nornir_utils.plugins.tasks.data import load_yaml
