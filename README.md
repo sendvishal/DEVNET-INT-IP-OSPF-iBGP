@@ -1,7 +1,7 @@
 # DEVNET-INT-IP-OSPF-iBGP
 DEVNET-INT-IP-OSPF-iBGP
 
-This short lab to configure interface IPv4 information and OSPF routing configuration on IOS using nornir, jinja2 template 
+This short lab to configure interface IPv4 ,OSPF and iBGP routing configuration on IOS using nornir, jinja2 template 
 
 # Instructions
 
