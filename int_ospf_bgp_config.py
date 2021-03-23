@@ -8,8 +8,6 @@ from nornir_utils.plugins.functions import print_title, print_result
 nr = InitNornir(config_file="config.yml")
 
 # Loading variable dynamicaly #
-
-
 def load_variable(task):
     input_data = task.run(task=load_yaml, name="Geting info from Variables",
                           file=f'./routers/{task.host}.yaml')
@@ -17,8 +15,6 @@ def load_variable(task):
     int_ospf_bgp_configuration(task)
 
 # Sending interface_IP_ospf_iBGP _config_to _RR-1,RR-2,R1,R2,R3,R4#
-
-
 def int_ospf_bgp_configuration(task):
     int_ospf_bgp_j2_temp = task.run(
         task=template_file, name="Interface , OSPF and iBGP Configuration", template="int_ospf_bgp_config.j2", path="")
@@ -28,8 +24,6 @@ def int_ospf_bgp_configuration(task):
              name="Configuring Int_OSPF_iBGP", configs=cmd_send)
 
 # Checking Interface, ospf and bgp neighbor status#
-
-
 def show_status_ospf_bgp(task):
     show_cmd = task.run(task=send_commands, commands=[
         "show ip ospf neighbor", "show ip bgp summary"])
@@ -44,11 +38,3 @@ showcmd = nr.run(task=show_status_ospf_bgp)
 print_title('OSPF and BGP Neighbor Status')
 print_result(showcmd)
 
-
-# def int_ospf_bgp_configuration(task):
-#     bgp_j2_temp = task.run(
-#         task=template_file, name="Interface , OSPF and iBGP Configuration", template="int_ospf_bgp_config.j2", path="")
-#     output_data = bgp_j2_temp.result
-#     cmd_send = output_data.splitlines()
-#     task.run(task=netmiko_send_config,
-#              name="Configuring iBGP", config_commands=cmd_send)
